@@ -8,9 +8,15 @@
 </head>
 <body>
 {% for pet in Pets %}
-    {{ pet.name }}
-    <img src="{{ media }}{{ pet.face }}" alt="">
-    {{ pet.age }}
+    <table>
+        <tr>
+            <th>{{ pet.name }}
+            <img src="{{ media }}{{ pet.face }}" alt="">
+            {{ pet.age }}
+            {{ pet.receipt_date }}
+            </th>
+        </tr>
+    </table>
 {% endfor %}
 </body>
 </html>
