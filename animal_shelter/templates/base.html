@@ -1,0 +1,16 @@
+{% load static %}
+{% get_media_prefix as media %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>start</title>
+</head>
+<body>
+{% for pet in Pets %}
+    {{ pet.name }}
+    <img src="{{ media }}{{ pet.face }}" alt="">
+    {{ pet.age }}
+{% endfor %}
+</body>
+</html>
