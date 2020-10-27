@@ -1,16 +1,10 @@
-{% load static %}
-{% get_media_prefix as media %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>start</title>
-</head>
-<body>
+{% extends 'for_base/top.html' %}
+{% block contant %}
 {% for pet in Pets %}
     <table>
         <tr>
-            <th>{{ pet.name }}
+            <th>
+            {{ pet.name }}
             <img src="{{ media }}{{ pet.face }}" alt="">
             {{ pet.age }}
             {{ pet.receipt_date }}
@@ -18,5 +12,4 @@
         </tr>
     </table>
 {% endfor %}
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,12 @@
+#logo {
+    position: relative;
+    width: 70px;
+    left: 15px;
+    /*background-size: contain;*/
+    /*background-color: white;*/
+    color: white;
+}
+
+.navbar {
+    background-color: rgb(234, 72, 19);
+}
