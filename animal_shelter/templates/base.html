@@ -4,10 +4,12 @@
     <table>
         <tr>
             <th>
-            {{ pet.name }}
-            <img src="{{ media }}{{ pet.face }}" alt="">
-            {{ pet.age }}
-            {{ pet.receipt_date }}
+                <a href="{{ pet.id }}">
+                {{ pet.name }}
+                <img src="{{ media }}{{ pet.face }}" alt="">
+                {{ pet.age }}
+                {{ pet.receipt_date }}
+                </a>
             </th>
         </tr>
     </table>

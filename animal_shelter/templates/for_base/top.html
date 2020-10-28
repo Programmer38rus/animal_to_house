@@ -9,13 +9,37 @@
     <title>Animal to House</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark">
-        <div>
-        <img id="logo" src="{% static 'icons/pet-house.png' %}" alt="Logo">
-        <a class="navbar-brand font-weight-bold" href="#">Animal to House</a>
+        <div id="carousel1" class="carousel slide carousel-fade" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'carousel/5.jpg' %}" class="d-block w-100" alt="one">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'carousel/6.jpg' %}" class="d-block w-100" alt="two">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'carousel/4.jpg' %}" class="d-block w-100" alt="three">
+            </div>
+          </div>
         </div>
+    <nav class="navbar navbar-dark">
+            <img id="logo" src="{% static 'icons/pet-house.png' %}" alt="Logo">
+              <div class="navbar ">
+                  <a class="text-white nav-item nav-link" href="">Собаки</a>
+                  <a class="text-white nav-item nav-link" href="">Кошки</a>
+                  <a class="text-white nav-item nav-link" href="">Попугаи</a>
+                  <a class="text-white nav-item nav-link" href="">О нас</a>
+              </div>
+            <a class="navbar-brand font-weight-bold" href="http://localhost:8000/base/">Animal to House</a>
     </nav>
+    <div class="container">
     {% block contant %}
-    {% endblock %}
+{% endblock %}
+    </div>
+    <footer class="page-footer font-small blue bg-secondary fixed-bottom">
+        <div class="footer-copyright text-center py-3">Это футер</div>
+    </footer>
+    <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
