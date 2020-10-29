@@ -6,9 +6,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Animal to House</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
+<body class="bg-light">
         <div id="carousel1" class="carousel slide carousel-fade" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -25,19 +25,35 @@
     <nav class="navbar navbar-dark">
             <img id="logo" src="{% static 'icons/pet-house.png' %}" alt="Logo">
               <div class="navbar ">
-                  <a class="text-white nav-item nav-link" href="">Собаки</a>
-                  <a class="text-white nav-item nav-link" href="">Кошки</a>
-                  <a class="text-white nav-item nav-link" href="">Попугаи</a>
-                  <a class="text-white nav-item nav-link" href="">О нас</a>
+                  <a id="all" class="text-white nav-item nav-link" href="/">Все животные</a>
+                  <a class="text-white nav-item nav-link" href="/dog">Собаки</a>
+                  <a class="text-white nav-item nav-link" href="/cat">Кошки</a>
+                  <a class="text-white nav-item nav-link" href="/parrot">Попугаи</a>
+                  <a class="text-white nav-item nav-link" href="/about/">О нас</a>
               </div>
-            <a class="navbar-brand font-weight-bold" href="http://localhost:8000/base/">Animal to House</a>
+            <a class="navbar-brand font-weight-bold" href="/">Animal to House</a>
     </nav>
     <div class="container">
     {% block contant %}
-{% endblock %}
+    {% endblock %}
     </div>
-    <footer class="page-footer font-small blue bg-secondary fixed-bottom">
-        <div class="footer-copyright text-center py-3">Это футер</div>
+    <footer class="page-footer font-small  fixed-bottom">
+        <div class="container-fluid footer-copyright row py-3"><a class="text-white" href="https://github.com/Programmer38rus/animal_to_house">
+            <div class="col-8">
+                <img src="{% static 'icons/git.svg' %}" alt="">Cсылка на гитхаб</a>
+            </div>
+            <div class="col-4 flex-column">
+                <ul>
+                    <li class="list-unstyled">
+                        <a class="text-white" href="mailto:animal@tohome.ru?subject=Хочу друга!">электронная почта</a>
+                    </li>
+                    <li class="list-unstyled">
+                        <p class="text-white">телефон: 35-35-35</p>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
     </footer>
     <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>

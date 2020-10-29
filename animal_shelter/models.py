@@ -47,8 +47,10 @@ class Pet(models.Model):
                 return f'{age} год'
             elif last_simbol in year2 and age not in exception:
                 return f'{age} года'
-            elif last_simbol not in year2 and age in exception:
+            elif last_simbol not in year2 and age not in exception:
                 return f'{age} лет'
+            else:
+                return age
 
     def __str__(self):
         return self.name

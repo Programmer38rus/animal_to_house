@@ -1,17 +1,24 @@
 {% extends 'for_base/top.html' %}
+{% load static %}
+{% block title %}Приют для животных{% endblock %}
 {% block contant %}
-{% for pet in Pets %}
-    <table>
-        <tr>
-            <th>
-                <a href="{{ pet.id }}">
-                {{ pet.name }}
-                <img src="{{ media }}{{ pet.face }}" alt="">
-                {{ pet.age }}
-                {{ pet.receipt_date }}
-                </a>
-            </th>
-        </tr>
-    </table>
-{% endfor %}
+
+    <div class="album py-4">
+        <div class="container">
+            <div class="row">
+                {% for pet in Pets %}
+                <div class="col-md-3">
+                        <div class="card mb-4 shadow-sm" >
+                            <a href="{{ pet.id }}">
+                            <img src="{{ media }}{{ pet.face }}" alt="{{ pet.name }}" class="w-100">
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text">{{ pet.name }} - {{ pet.age }}</p>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
