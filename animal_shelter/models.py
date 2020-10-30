@@ -30,27 +30,22 @@ class Pet(models.Model):
         age = int((datetime.now().date() - self.birth_data).days / 31)
 
         if age < 12:
-            month = (2, 3, 4,)
-            if age == 1:
+            last_simbol = age % 10
+            if last_simbol == 1:
                 return f'{age} месяц'
-            elif age in month:
+            elif last_simbol in (2, 3, 4):
                 return f'{age} месяца'
-            else:
+            elif age % 100 in range(5, 21):
                 return f'{age} месяцев'
-        elif age > 12:
+        if age > 12:
             age = int(age / 12)
-            last_simbol = str(age)[-1]
-            year = ("1",)
-            exception = (11, 12, 13, 14,)
-            year2 = ("2", "3", "4",)
-            if last_simbol in year and age not in exception:
+            last_simbol = age % 10
+            if last_simbol == 1:
                 return f'{age} год'
-            elif last_simbol in year2 and age not in exception:
+            elif last_simbol in (2, 3, 4):
                 return f'{age} года'
-            elif last_simbol not in year2 and age not in exception:
+            elif age % 100 in range(5, 21):
                 return f'{age} лет'
-            else:
-                return age
 
     def __str__(self):
         return self.name
