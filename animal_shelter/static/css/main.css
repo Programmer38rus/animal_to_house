@@ -6,6 +6,9 @@
 .navbar {
     background-color: rgb(234, 72, 19);
 }
+.wrapper {
+    min-height: 900px;
+}
 footer {
     background-color: rgb(23, 123, 25);
 }
@@ -31,4 +34,20 @@ footer {
 
 #all {
     font-weight: bold;
+}
+footer {
+    height: 60px;
+}
+.footer-block {
+    padding: 0 3.3rem 0 3.3rem ;
+}
+.footer-block .col-2 img {
+    height: 35px;
+}
+
+.footer-block .col-2 a:hover {
+    color: white;
+}
+.footer-block .col-10 {
+    font-size: 12px;
 }
