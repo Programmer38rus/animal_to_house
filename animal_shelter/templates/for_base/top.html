@@ -4,10 +4,12 @@
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=b04631b2-1444-4b36-b65e-279b530472ef&lang=ru_RU" type="text/javascript">
+    </script>
 </head>
 <body class="bg-light">
 <div id="carousel1" class="carousel slide carousel-fade" data-ride="carousel">
@@ -27,16 +29,23 @@
     <img id="logo" src="{% static 'icons/pet-house.png' %}" alt="Logo">
     <div class="navbar">
         <a id="all" class="text-white nav-item nav-link" href="/">Все животные</a>
-        <a class="text-white nav-item nav-link" href="/dog">Собаки</a>
-        <a class="text-white nav-item nav-link" href="/cat">Кошки</a>
-        <a class="text-white nav-item nav-link" href="/parrot">Попугаи</a>
-        <a class="text-white nav-item nav-link" href="/about/">О нас</a>
+        <a class="text-white nav-item nav-link" href="{% url 'animal_shelter:finder_by_kind' 'dog' %}">Собаки</a>
+        <a class="text-white nav-item nav-link" href="{% url 'animal_shelter:finder_by_kind' 'cat' %}">Кошки</a>
+        <a class="text-white nav-item nav-link" href="{% url 'animal_shelter:finder_by_kind' 'parrot' %}">Попугаи</a>
+        <a class="text-white nav-item nav-link" href="/about">О нас</a>
+        <a class="text-white nav-item nav-link" href="{% url 'animal_shelter:map' %}">Мы на карте</a>
     </div>
     <a class="navbar-brand font-weight-bold" href="/">Animal to House</a>
 </nav>
 <div class="container wrapper">
-    {% block contant %}
-    {% endblock %}
+    <div class="container mt-3">
+{#        <p><b>Фильтры</b></p>#}
+{#        {% for k in kind %}#}
+{#            <a href="{% url 'animal_shelter:finder_by_kind' k.name %}"><div class="badge badge-primary">{{ k }}</div></a>#}
+{#        {% endfor %}#}
+        {% block finder_by_kind %} {% endblock %}
+    </div>
+    {% block contant %} {% endblock %}
 </div>
 <footer class="page-footer font-small  fixed-bottom">
     <div class="footer-block">
@@ -67,5 +76,6 @@
 </footer>
 <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

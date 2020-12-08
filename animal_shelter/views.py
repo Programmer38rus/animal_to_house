@@ -13,6 +13,12 @@ class PetsList(ListView):
     template_name = 'base.html'
     context_object_name = 'Pets'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        pets = super(PetsList, self).get_context_data(**kwargs)
+
+        pets['kind'] = Kind.objects.all()
+
+        return pets
 
 class KindList(ListView):
     model = Pet
@@ -26,6 +32,8 @@ class KindList(ListView):
 
         for id in kind:
             pets['Pets'] = Pet.objects.filter(kind=id['id'])
+
+        pets['kind'] = Kind.objects.all()
         return pets
 
 
@@ -35,8 +43,11 @@ class PetsDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['pet'] = Pet.objects.all()
+        context['kind'] = Kind.objects.all()
         return context
 
 class AboutUs(TemplateView):
     template_name = 'about.html'
+
+class Map(TemplateView):
+    template_name = 'map.html'

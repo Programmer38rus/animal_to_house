@@ -1,6 +1,12 @@
 {% extends 'for_base/top.html' %}
 {% load static %}
 {% block title %}Приют для животных{% endblock %}
+{% block finder_by_kind %}
+    <p><b>Фильтры</b></p>
+    {% for k in kind %}
+        <a href="{% url 'animal_shelter:finder_by_kind' k.name %}"><div class="badge badge-primary">{{ k }}</div></a>
+    {% endfor %}
+{% endblock %}
 {% block contant %}
 
     <div class="album py-5">
@@ -9,7 +15,7 @@
                 {% for pet in Pets %}
                 <div class="col-md-3">
                         <div class="card mb-4 shadow-sm" >
-                            <a href="{{ pet.id }}">
+                            <a href="{% url 'animal_shelter:pet-detail' pet.id %}">
                             <img src="{{ media }}{{ pet.face }}" alt="{{ pet.name }}" class="w-100">
                             </a>
                             <div class="card-body">
